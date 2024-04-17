@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_couple_images_couple_images",
+  "info": {
+    "displayName": "couple-images",
+    "icon": "stack"
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}
