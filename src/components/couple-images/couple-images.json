@@ -2,13 +2,17 @@
   "collectionName": "components_couple_images_couple_images",
   "info": {
     "displayName": "couple-images",
-    "icon": "stack"
+    "icon": "stack",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "content": {
-      "type": "richtext",
-      "required": true
+    "coupleImages": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
     }
   }
 }

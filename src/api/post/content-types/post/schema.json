@@ -22,7 +22,7 @@
     },
     "shortDescriptionCover": {
       "type": "string",
-      "required": true,
+      "required": false,
       "minLength": 5
     },
     "hashtags": {

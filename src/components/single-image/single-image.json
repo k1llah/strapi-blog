@@ -2,8 +2,18 @@
   "collectionName": "components_single_image_single_images",
   "info": {
     "displayName": "single-image",
-    "icon": "attachment"
+    "icon": "attachment",
+    "description": ""
   },
   "options": {},
-  "attributes": {}
+  "attributes": {
+    "singleImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": false
+    }
+  }
 }

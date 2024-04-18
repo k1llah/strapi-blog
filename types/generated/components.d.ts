@@ -16,9 +16,10 @@ export interface CoupleImagesCoupleImages extends Schema.Component {
   info: {
     displayName: 'couple-images';
     icon: 'stack';
+    description: '';
   };
   attributes: {
-    content: Attribute.RichText & Attribute.Required;
+    coupleImages: Attribute.Media;
   };
 }
 
@@ -27,8 +28,11 @@ export interface SingleImageSingleImage extends Schema.Component {
   info: {
     displayName: 'single-image';
     icon: 'attachment';
+    description: '';
   };
-  attributes: {};
+  attributes: {
+    singleImage: Attribute.Media;
+  };
 }
 
 export interface TitleTitle extends Schema.Component {
