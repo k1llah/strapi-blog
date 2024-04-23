@@ -1,5 +1,19 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface ContentTitleH3Title extends Schema.Component {
+  collectionName: 'components_content_title_h3_titles';
+  info: {
+    displayName: 'h3 Title';
+    icon: 'pencil';
+  };
+  attributes: {
+    titleContent: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        minLength: 3;
+      }>;
+  };
+}
+
 export interface ContentContent extends Schema.Component {
   collectionName: 'components_content_contents';
   info: {
@@ -20,6 +34,20 @@ export interface CoupleImagesCoupleImages extends Schema.Component {
   };
   attributes: {
     coupleImages: Attribute.Media;
+  };
+}
+
+export interface ParagraphParagraphInfo extends Schema.Component {
+  collectionName: 'components_paragraph_paragraph_infos';
+  info: {
+    displayName: 'paragraph info';
+    icon: 'discuss';
+  };
+  attributes: {
+    paragraphContent: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        minLength: 5;
+      }>;
   };
 }
 
@@ -53,8 +81,10 @@ export interface TitleTitle extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'content-title.h3-title': ContentTitleH3Title;
       'content.content': ContentContent;
       'couple-images.couple-images': CoupleImagesCoupleImages;
+      'paragraph.paragraph-info': ParagraphParagraphInfo;
       'single-image.single-image': SingleImageSingleImage;
       'title.title': TitleTitle;
     }

@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_paragraph_paragraph_infos",
+  "info": {
+    "displayName": "paragraph info",
+    "icon": "discuss"
+  },
+  "options": {},
+  "attributes": {
+    "paragraphContent": {
+      "type": "text",
+      "minLength": 5
+    }
+  }
+}

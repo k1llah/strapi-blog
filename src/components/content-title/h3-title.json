@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_content_title_h3_titles",
+  "info": {
+    "displayName": "h3 Title",
+    "icon": "pencil"
+  },
+  "options": {},
+  "attributes": {
+    "titleContent": {
+      "type": "string",
+      "required": false,
+      "unique": false,
+      "minLength": 3
+    }
+  }
+}

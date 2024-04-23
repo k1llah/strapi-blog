@@ -432,8 +432,9 @@ export interface ApiPostPost extends Schema.CollectionType {
       [
         'single-image.single-image',
         'couple-images.couple-images',
-        'content.content',
-        'title.title'
+        'title.title',
+        'content-title.h3-title',
+        'paragraph.paragraph-info'
       ]
     >;
     createdAt: Attribute.DateTime;
