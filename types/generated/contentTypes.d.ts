@@ -362,91 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiHashtagHashtag extends Schema.CollectionType {
-  collectionName: 'hashtags';
-  info: {
-    singularName: 'hashtag';
-    pluralName: 'hashtags';
-    displayName: 'hashtag';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    hashtagName: Attribute.String &
-      Attribute.Required &
-      Attribute.SetMinMaxLength<{
-        minLength: 2;
-      }>;
-    posts: Attribute.Relation<
-      'api::hashtag.hashtag',
-      'manyToMany',
-      'api::post.post'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::hashtag.hashtag',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::hashtag.hashtag',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiPostPost extends Schema.CollectionType {
-  collectionName: 'posts';
-  info: {
-    singularName: 'post';
-    pluralName: 'posts';
-    displayName: 'Post';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    coverImage: Attribute.Media & Attribute.Required;
-    shortDescriptionCover: Attribute.String &
-      Attribute.SetMinMaxLength<{
-        minLength: 5;
-      }>;
-    hashtags: Attribute.Relation<
-      'api::post.post',
-      'manyToMany',
-      'api::hashtag.hashtag'
-    >;
-    titleToCover: Attribute.String &
-      Attribute.Required &
-      Attribute.SetMinMaxLength<{
-        minLength: 2;
-      }>;
-    postTemplate: Attribute.DynamicZone<
-      [
-        'single-image.single-image',
-        'couple-images.couple-images',
-        'title.title',
-        'content-title.h3-title',
-        'paragraph.paragraph-info'
-      ]
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::post.post', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::post.post', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -873,6 +788,85 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiHashtagHashtag extends Schema.CollectionType {
+  collectionName: 'hashtags';
+  info: {
+    singularName: 'hashtag';
+    pluralName: 'hashtags';
+    displayName: 'hashtag';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    hashtagName: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        minLength: 2;
+      }>;
+    posts: Attribute.Relation<
+      'api::hashtag.hashtag',
+      'manyToMany',
+      'api::post.post'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::hashtag.hashtag',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::hashtag.hashtag',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPostPost extends Schema.CollectionType {
+  collectionName: 'posts';
+  info: {
+    singularName: 'post';
+    pluralName: 'posts';
+    displayName: 'Post';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    coverImage: Attribute.Media & Attribute.Required;
+    shortDescriptionCover: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        minLength: 5;
+      }>;
+    hashtags: Attribute.Relation<
+      'api::post.post',
+      'manyToMany',
+      'api::hashtag.hashtag'
+    >;
+    titleToCover: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        minLength: 2;
+      }>;
+    postTemplate: Attribute.DynamicZone<
+      ['md-content.md-content', 'content.title-of-content']
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::post.post', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::post.post', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -883,8 +877,6 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::hashtag.hashtag': ApiHashtagHashtag;
-      'api::post.post': ApiPostPost;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -893,6 +885,8 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::hashtag.hashtag': ApiHashtagHashtag;
+      'api::post.post': ApiPostPost;
     }
   }
 }

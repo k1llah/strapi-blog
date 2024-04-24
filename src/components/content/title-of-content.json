@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_content_title_of_content_s",
+  "info": {
+    "displayName": "title of content ",
+    "icon": "strikeThrough"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "minLength": 2
+    }
+  }
+}

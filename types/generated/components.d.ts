@@ -25,6 +25,21 @@ export interface ContentContent extends Schema.Component {
   };
 }
 
+export interface ContentTitleOfContent extends Schema.Component {
+  collectionName: 'components_content_title_of_content_s';
+  info: {
+    displayName: 'title of content ';
+    icon: 'strikeThrough';
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        minLength: 2;
+      }>;
+  };
+}
+
 export interface CoupleImagesCoupleImages extends Schema.Component {
   collectionName: 'components_couple_images_couple_images';
   info: {
@@ -34,6 +49,21 @@ export interface CoupleImagesCoupleImages extends Schema.Component {
   };
   attributes: {
     coupleImages: Attribute.Media;
+  };
+}
+
+export interface MdContentMdContent extends Schema.Component {
+  collectionName: 'components_md_content_md_contents';
+  info: {
+    displayName: 'md content';
+    icon: 'medium';
+  };
+  attributes: {
+    content: Attribute.RichText &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        minLength: 4;
+      }>;
   };
 }
 
@@ -83,7 +113,9 @@ declare module '@strapi/types' {
     export interface Components {
       'content-title.h3-title': ContentTitleH3Title;
       'content.content': ContentContent;
+      'content.title-of-content': ContentTitleOfContent;
       'couple-images.couple-images': CoupleImagesCoupleImages;
+      'md-content.md-content': MdContentMdContent;
       'paragraph.paragraph-info': ParagraphParagraphInfo;
       'single-image.single-image': SingleImageSingleImage;
       'title.title': TitleTitle;

@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_md_content_md_contents",
+  "info": {
+    "displayName": "md content",
+    "icon": "medium"
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "richtext",
+      "minLength": 4,
+      "required": true
+    }
+  }
+}

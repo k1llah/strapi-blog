@@ -39,11 +39,8 @@
     "postTemplate": {
       "type": "dynamiczone",
       "components": [
-        "single-image.single-image",
-        "couple-images.couple-images",
-        "title.title",
-        "content-title.h3-title",
-        "paragraph.paragraph-info"
+        "md-content.md-content",
+        "content.title-of-content"
       ]
     }
   }
